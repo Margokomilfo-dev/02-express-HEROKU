@@ -74,8 +74,10 @@ postsRouter.put('/:id',auth,
 
         const blogger = await bloggersRepository.findBloggerById(bloggerId)
         if (!blogger) {
-            res.sendStatus(400)
-            return
+           res.status(400).send({
+                resultCode: 1,
+                errorsMessages: [{message: 'blogger is not created', field: 'bloggerId'}]
+            })
         }
         const isUpdated = await postRepository.updatePost(id, title, shortDescription, content, bloggerId)
         if (isUpdated) {
