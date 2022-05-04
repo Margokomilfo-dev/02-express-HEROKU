@@ -30,7 +30,7 @@ bloggersRouter.post('/',auth,
             res.status(400).send({
                 data: {},
                 resultCode: 1,
-                errorsMessages: [{message: 'blogger is not created', field: '-'}]
+                errorsMessages: [{message: 'blogger is not created', field: 'bloggerId'}]
             })
         }
     })

@@ -35,7 +35,7 @@ export const bloggersRepository = {
     },
 
     async updateBlogger(id: number, name: string, url: string) {
-        const isBlogger = await bloggers.findOne({id})
+        const isBlogger = await bloggers.findOne({id}, {projection:{_id:0}});
         if(!isBlogger){
             return false
         }

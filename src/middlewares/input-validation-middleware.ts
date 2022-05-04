@@ -11,7 +11,6 @@ export const inputValidationMiddleware = (req: Request, res: Response, next: Nex
             newErrors = errors.array().filter((e) =>  !(e.param ==='youtubeUrl' && e.msg.includes('length 2-100 ')) )
         }
         res.status(400).json({
-            data: {},
             resultCode: 1,
             errorsMessages: newErrors.map((e) => ({
                 message: e.msg,
