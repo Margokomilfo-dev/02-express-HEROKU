@@ -37,7 +37,7 @@ export let auth = (req: Request, res: Response, next: NextFunction) => {
         res.send(401)
         return
     }
-    if (authHeader && authHeader === base64data) {
+    if (authHeader && authHeader === `Basic ${base64data}`) {
         next();
     } else {
         res.send(401)

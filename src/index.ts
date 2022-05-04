@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 const port = process.env.PORT || 5006
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('Hello: World!!!!- express (3 homework with MONGO DB)')
+    res.send('Hello, World!!!!')
 })
 
 app.use('/bloggers', bloggersRouter)
