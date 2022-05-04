@@ -19,7 +19,6 @@ export const postRepository = {
             bloggerId,
             bloggerName: blogger?.name
         }
-
         const created = await posts.insertOne(newPost,{forceServerObjectId:true})
         if (created) {
             return newPost
