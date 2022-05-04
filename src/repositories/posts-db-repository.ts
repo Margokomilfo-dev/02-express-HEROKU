@@ -26,7 +26,7 @@ export const postRepository = {
         } else return null
     },
     async getPostById(id: number) {
-        const post = await posts.findOne({id})
+        const post = await posts.findOne({id},{projection:{_id:0}})
         if (post) {
             return post
         } else return null
