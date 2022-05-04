@@ -33,6 +33,7 @@ bloggersRouter.post('/',auth,
             })
         }
     })
+
 bloggersRouter.get('/:id', async (req: Request, res: Response) => {
     const id = +req.params.id
     if (!id) {
@@ -47,6 +48,7 @@ bloggersRouter.get('/:id', async (req: Request, res: Response) => {
     }
 
 })
+
 bloggersRouter.put('/:id',auth,
     nameValueValidation,
     youtubeUrlValidation1,
@@ -65,6 +67,7 @@ bloggersRouter.put('/:id',auth,
             res.sendStatus(204)
         } else res.send(404)
     })
+
 bloggersRouter.delete('/:id', auth,async (req: Request, res: Response) => {
     const id = parseInt(req.params.id)
     if (!id) {
