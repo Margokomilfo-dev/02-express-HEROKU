@@ -48,7 +48,6 @@ bloggersRouter.get('/:id', async (req: Request, res: Response) => {
     }
 
 })
-
 bloggersRouter.put('/:id',auth,
     nameValueValidation,
     youtubeUrlValidation1,
