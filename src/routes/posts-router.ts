@@ -33,7 +33,7 @@ postsRouter.post('/',auth,
             })
             return
         }
-        const newPost = await postRepository.createPost(title, shortDescription, content, bloggerId)
+        const newPost = await postRepository.createPost(title, shortDescription, content, bloggerId, blogger.name)
         if (newPost) {
             res.status(201).send(newPost)
         } else {

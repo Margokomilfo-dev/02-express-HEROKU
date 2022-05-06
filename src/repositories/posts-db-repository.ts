@@ -9,15 +9,14 @@ export const postRepository = {
     async deletePostsByBloggerId(bloggerId: number) {
         return posts.deleteMany({bloggerId})
     },
-    async createPost(title: string, descr: string, content: string, bloggerId: number) {
-        const blogger = await bloggersRepository.findBloggerById(bloggerId)
+    async createPost(title: string, descr: string, content: string, bloggerId: number, bloggerName: string) {
         const newPost: PostType = {
             id: +(new Date()),
             title,
             shortDescription: descr,
             content,
             bloggerId,
-            bloggerName: blogger?.name
+            bloggerName
         }
         const created = await posts.insertOne(newPost,{forceServerObjectId:true})
         if (created) {
