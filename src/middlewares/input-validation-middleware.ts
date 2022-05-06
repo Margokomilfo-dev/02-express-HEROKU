@@ -26,11 +26,11 @@ const credentials = {
     password: 'qwerty'
 }
 
+let data = `${credentials.login}:${credentials.password}`;
+let buff = new Buffer(data);
+let base64data = buff.toString('base64');
+
 export let auth = (req: Request, res: Response, next: NextFunction) => {
-    let data = `${credentials.login}:${credentials.password}`;
-    let buff = new Buffer(data);
-    let base64data = buff.toString('base64');
-    // console.log(base64data)
     let authHeader = req.headers.authorization // 'Base  SDGSNstnsdgn' (admin:qwerty)
     if (!authHeader) {
         res.send(401)
