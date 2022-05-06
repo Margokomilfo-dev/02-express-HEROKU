@@ -2,7 +2,8 @@ import {MongoClient} from 'mongodb'
 import {PostType} from './posts-repository'
 import {BloggerType} from './bloggers-repository'
 
-const mongoUri = process.env.mongoURI || "mongodb://0.0.0.0:27017";
+// const mongoUri = process.env.mongoURI || "mongodb://0.0.0.0:27017";
+const mongoUri = 'mongodb+srv://admin:admin@express.knv2b.mongodb.net/express?retryWrites=true&w=majority';
 
 export const client = new MongoClient(mongoUri);
 const connection = client.db("myBd")
@@ -17,7 +18,6 @@ export async function runDb() {
         // Establish and verify connection
         await client.db("products").command({ ping: 1 });
         console.log("Connected successfully to mongo server");
-
     } catch {
         console.log("Can't connect to db");
         // Ensures that the client will close when you finish/error
